@@ -36,8 +36,6 @@ alumno = Persona("alumno")
 profe = Persona("Albus")
 alumno  = Persona("Harry")
 
-
-
 profe.saludar(alumno)
 alumno.saludar(profe)
 

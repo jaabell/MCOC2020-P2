@@ -18,9 +18,7 @@ class Barra(object):
 
 
 	def obtener_conectividad(self):
-		"""Implementar"""
-
-		return 
+		return np.array([self.ni,self.nj])
 
 	def calcular_area(self):
 		R = self.R

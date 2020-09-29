@@ -44,12 +44,16 @@ class Reticulado(object):
 
 
 	def obtener_nodos(self):
-		"""Implementar"""
-		return 
+		nodelist = []
+		for n in range(self.Nnodos):
+			enei = self.obtener_coordenada_nodal(n)
+			nodelist.append(enei)
+			
+		nodelist2 = np.array(nodelist)
+		return nodelist2
 
 	def obtener_barras(self):
-		"""Implementar"""
-		return 
+		return self.barras
 
 	def agregar_restriccion(self, nodo, gdl, valor=0.0):
 		"""Implementar"""

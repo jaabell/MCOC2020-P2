@@ -15,6 +15,7 @@ class Barra(object):
 		self.E = E
 		self.ρ = ρ
 		self.σy = σy
+		'''Probando'''
 
 	def obtener_conectividad(self):
 		"""Implementar"""

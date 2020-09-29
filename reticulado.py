@@ -20,8 +20,8 @@ class Reticulado(object):
 		return
 
 	def agregar_barra(self, barra):
-		self.barras.append(barra)
-		return
+		return self.barras.append(barra)
+
 
 	def obtener_coordenada_nodal(self, n):
 		return self.xyz[n]
@@ -30,7 +30,7 @@ class Reticulado(object):
 		peso_total = 0
 		for b in self.barras():
 			peso_total += b.calcular_peso(self)
-		return 
+		return peso_total
 
 	def obtener_nodos(self):
 		"""Implementar"""

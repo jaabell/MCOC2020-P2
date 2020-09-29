@@ -24,11 +24,14 @@ class Reticulado(object):
 		return
 
 	def obtener_coordenada_nodal(self, n): 
-		"""Implementar"""
+		if n >= self.Nnodos:
+			return
 		return 
 
 	def calcular_peso_total(self):
-		"""Implementar"""
+		peso_total = 0
+		for b in self.barras():
+			peso_total += b.calcular_peso(self)
 		return 
 
 	def obtener_nodos(self):

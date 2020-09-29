@@ -62,15 +62,7 @@ class Reticulado(object):
 		return
 
 	def __str__(self):
-		
-# 		s = "nodos:\n"
-# 		for n in range(self.Nnodos):
-# 			s+=f"  {n} : (  {self.xyz[n,0]}  , {self.xyz[n,1]} , {self.xyz[n,2]} \n "
-# 			
-# 			s+="\n\n"
-# 			s+="barras: \n"
-# 		
-# 		
+			
 		
 		
 		

@@ -23,15 +23,19 @@ ret.agregar_nodo(1,1)
 print(ret)
 
 # #Barras
-# b1 = Barra(0, 1, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
-# b2 = Barra(1, 2, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
-# b3 = Barra(0, 2, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
+b1 = Barra(0, 1, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
+b2 = Barra(1, 2, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
+b3 = Barra(0, 2, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
 
-# ret.agregar_barra(b1)
-# ret.agregar_barra(b2)
-# ret.agregar_barra(b3)
+ret.agregar_barra(b1)
+ret.agregar_barra(b2)
+ret.agregar_barra(b3)
 
-# peso_total = ret.calcular_peso_total()
+peso_total = ret.calcular_peso_total()
+
+
+
+print (peso_total)
 
 # print(f"peso_total = {peso_total}")
 

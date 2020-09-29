@@ -11,7 +11,7 @@ MPa = 1e+6
 KN = 1e3
 m = 1.0
 
-#Inicializar modelo
+# Inicializar modelo
 ret = Reticulado()
 
 
@@ -36,3 +36,16 @@ print(ret)
 # print(f"peso_total = {peso_total}")
 
 # ver_reticulado_2d(ret)
+
+cm  = 1e-2
+mm  = 1e-3 
+kg  = 1 
+GPa = 1e9
+MPa = 1e6   
+KN  = 1e3 
+m   = 1 
+
+        
+b1 = Barra(2 ,4, 10*cm , 100*mm , 200*GPa, 7300*kg/m**3, 420*MPa )
+
+b1.calcular_area()

@@ -20,15 +20,16 @@ class Reticulado(object):
 		return
 
 	def agregar_barra(self, barra):
-		"""Implementar"""
+		self.barras.append(barra)
 		return
 
-	def obtener_coordenada_nodal(self, n): 
-		"""Implementar"""
-		return 
+	def obtener_coordenada_nodal(self, n):
+		return self.xyz[n]
 
 	def calcular_peso_total(self):
-		"""Implementar"""
+		peso_total = 0
+		for b in self.barras():
+			peso_total += b.calcular_peso(self)
 		return 
 
 	def obtener_nodos(self):
@@ -61,8 +62,13 @@ class Reticulado(object):
 		return
 
 	def __str__(self):
+			
+		
+		
+		
+		
 		s = "Hola soy un reticulado!\n"
 		s += "mis nodos son:"
-		s += f"{self.xyz}"
+		s += f"\n{self.xyz},\n{type(self.xyz)},\n{self.xyz[0]}"
 		return s
 

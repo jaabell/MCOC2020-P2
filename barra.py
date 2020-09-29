@@ -39,7 +39,7 @@ class Barra(object):
 	def calcular_peso(self, reticulado):
 		L = self.calcular_largo(reticulado)
 		A = self.calcular_area()
-		densidad =self.p
+		densidad =self.ρ
 		return densidad * A * L * g
 
 

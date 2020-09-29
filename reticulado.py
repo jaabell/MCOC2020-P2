@@ -23,10 +23,8 @@ class Reticulado(object):
 		self.barras.append(barra)
 		return
 
-	def obtener_coordenada_nodal(self, n): 
-		if n >= self.Nnodos:
-			return
-		return 
+	def obtener_coordenada_nodal(self, n):
+		return self.xyz[n]
 
 	def calcular_peso_total(self):
 		peso_total = 0

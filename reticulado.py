@@ -77,6 +77,6 @@ class Reticulado(object):
 		
 		s = "Hola soy un reticulado!\n"
 		s += "mis nodos son:"
-		s += f"\n{self.xyz}"
+		s += f"\n{self.xyz},\n{type(self.xyz)},\n{self.xyz[0]}"
 		return s
 

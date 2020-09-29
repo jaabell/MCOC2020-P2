@@ -20,7 +20,7 @@ class Reticulado(object):
 		return
 		
 	def agregar_barra(self, barra):
-		"""Implementar"""
+		self.barras.append(barra)
 		return
 
 	def obtener_coordenada_nodal(self, n): 

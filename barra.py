@@ -26,7 +26,6 @@ class Barra(object):
 		R = self.R
 		t = self.t
 		A = np.pi*(R**2 - (R-t)**2)
-		
 		return A
 
 	def calcular_largo(self, reticulado):

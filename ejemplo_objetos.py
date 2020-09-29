@@ -28,7 +28,7 @@ class Persona(object):
 		quien = self.decir_nombre()
 		otro = otra_persona.decir_nombre()
 		print(f"{quien} dice: Hola {otro}.")
-
+		print("Hola")
 
 profe = Persona("profe")
 alumno = Persona("alumno")

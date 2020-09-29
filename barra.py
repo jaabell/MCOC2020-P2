@@ -22,8 +22,12 @@ class Barra(object):
 		return 
 
 	def calcular_area(self):
-		"""Implementar"""
-		return 
+		R=self.R
+		t=self.t
+		
+		Area=np.pi*(R**2 - (R-t)**2)
+		print(Area)
+		return Area
 
 	def calcular_largo(self, reticulado):
 		"""Devuelve el largo de la barra. 

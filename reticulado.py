@@ -18,7 +18,7 @@ class Reticulado(object):
 		self.xyz[self.Nnodos,:] = [x,y,z]
 		self.Nnodos +=1
 		return
-		
+
 	def agregar_barra(self, barra):
 		self.barras.append(barra)
 		return

@@ -15,15 +15,18 @@ class Barra(object):
 		self.E = E
 		self.ρ = ρ
 		self.σy = σy
-		'''Probando'''
+
 
 	def obtener_conectividad(self):
 		"""Implementar"""
 		return 
 
 	def calcular_area(self):
-		"""Implementar"""
-		return 
+		R = self.R
+		t = self.t
+		A = np.pi*(R**2 - (R-t)**2)
+		print (A)
+		return A
 
 	def calcular_largo(self, reticulado):
 		"""Devuelve el largo de la barra. 

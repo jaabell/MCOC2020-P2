@@ -13,7 +13,7 @@ Cada integrante del equipo 1 tuvo que realizar las diferentes tareas.
 
 A continuacion se presenta lo obtenido para el ejemplo 1
 
-![alt text](https://github.com/LucasRaggio/MCOC2020-P1/blob/master/Entrega%205/Fotos/Dis%20J3%20sol.png?raw=true) 
+![alt text](https://github.com/LucasRaggio/MCOC2020-P2/blob/master/Imp.png?raw=true) 
 
 
 

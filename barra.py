@@ -26,7 +26,7 @@ class Barra(object):
 		t=self.t
 		
 		Area=np.pi*(R**2 - (R-t)**2)
-		print(Area)
+		
 		return Area
 
 	def calcular_largo(self, reticulado):

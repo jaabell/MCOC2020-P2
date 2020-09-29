@@ -63,20 +63,20 @@ class Reticulado(object):
 
 	def __str__(self):
 		
-		s = "nodos:\n"
-		for n in range(self.Nnodos):
-			s+=f"  {n} : (  {self.xyz[n,0]}  , {self.xyz[n,1]} , {self.xyz[n,2]} \n "
-			
-			s+="\n\n"
-			s+="barras: \n"
-		
-		
-		
-		
-		
+# 		s = "nodos:\n"
+# 		for n in range(self.Nnodos):
+# 			s+=f"  {n} : (  {self.xyz[n,0]}  , {self.xyz[n,1]} , {self.xyz[n,2]} \n "
+# 			
+# 			s+="\n\n"
+# 			s+="barras: \n"
 # 		
-# 		s = "Hola soy un reticulado!\n"
-# 		s += "mis nodos son:"
-# 		s += f"{self.xyz}"
+# 		
+		
+		
+		
+		
+		s = "Hola soy un reticulado!\n"
+		s += "mis nodos son:"
+		s += f"\n{self.xyz}"
 		return s
 

@@ -18,6 +18,7 @@ class Barra(object):
 
 	def obtener_conectividad(self):
 		"""Implementar"""
+
 		return 
 
 	def calcular_area(self):

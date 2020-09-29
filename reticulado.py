@@ -18,7 +18,7 @@ class Reticulado(object):
 		self.xyz[self.Nnodos,:] = [x,y,z]
 		self.Nnodos +=1
 		return
-		
+
 	def agregar_barra(self, barra):
 		return self.barras.append(barra)
 
@@ -62,8 +62,13 @@ class Reticulado(object):
 		return
 
 	def __str__(self):
+			
+		
+		
+		
+		
 		s = "Hola soy un reticulado!\n"
 		s += "mis nodos son:"
-		s += f"{self.xyz}"
+		s += f"\n{self.xyz},\n{type(self.xyz)},\n{self.xyz[0]}"
 		return s
 

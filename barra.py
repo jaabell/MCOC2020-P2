@@ -41,7 +41,6 @@ class Barra(object):
 		A = self.calcular_area()
 		densidad =self.p
 		return densidad * A * L * g
-	
 
 
 

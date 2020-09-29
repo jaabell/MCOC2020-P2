@@ -18,15 +18,12 @@ class Barra(object):
 
 
 	def obtener_conectividad(self):
-		"""Implementar"""
-
-		return 
+		return np.array([self.ni,self.nj])
 
 	def calcular_area(self):
 		R = self.R
 		t = self.t
 		A = np.pi*(R**2 - (R-t)**2)
-		print (A)
 		return A
 
 	def calcular_largo(self, reticulado):
@@ -40,7 +37,7 @@ class Barra(object):
 	def calcular_peso(self, reticulado):
 		L = self.calcular_largo(reticulado)
 		A = self.calcular_area()
-		densidad =self.p
+		densidad =self.ρ
 		return densidad * A * L * g
 
 

@@ -34,7 +34,7 @@ profe = Persona("profe")
 alumno = Persona("alumno")
 
 profe = Persona("Albus")
-alumno  = Persona("Harry")
+alumno  = Persona("Jaime")
 
 
 

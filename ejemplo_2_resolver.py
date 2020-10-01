@@ -34,6 +34,7 @@ ret.agregar_nodo(L/2,sqrt(3)/2*L)
 ret.agregar_nodo(3*L/2,sqrt(3)/2*L)
 
 
+
 #Barras
 A = (1.1*cm)**2
 r = sqrt(A/3.141593)
@@ -48,6 +49,10 @@ ret.agregar_barra(Barra(3, 1, *props))
 ret.agregar_barra(Barra(1, 4, *props))
 ret.agregar_barra(Barra(4, 2, *props))
 
+
+
+
+
 ret.agregar_restriccion(0, 0, 0)
 ret.agregar_restriccion(0, 1, 0)
 ret.agregar_restriccion(2, 1, 0)
@@ -57,6 +62,9 @@ ret.agregar_fuerza(4, 1, -F)
 ret.ensamblar_sistema()
 ret.resolver_sistema()
 f = ret.recuperar_fuerzas()
+
+ver_reticulado_2d(ret)
+
 
 print(ret)
 

@@ -142,20 +142,6 @@ class Reticulado(object):
 
         return fuerzas
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def __str__(self):
         s = "nodos:\n"
         for n in range(self.Nnodos):

@@ -93,6 +93,11 @@ class Reticulado(object):
         gdl_libres = np.arange(Ngdl)
         gdl_restringidos = []
 
+
+
+
+
+
         #Identificar gdl_restringidos y llenar u 
         # en valores conocidos.
         #
@@ -117,6 +122,9 @@ class Reticulado(object):
         # Resolver para obtener uf -->  Kff uf = ff - Kfc*uc
         
         #Asignar uf al vector solucion
+		
+		
+		
         self.u[gdl_libres] = uf
 
         #Marcar internamente que se tiene solucion
@@ -149,14 +157,9 @@ class Reticulado(object):
 
 
 
-
-
-
-
-
-
-
     def __str__(self):
+		
+		
         s = "nodos:\n"
         for n in range(self.Nnodos):
             s += f"  {n} : ( {self.xyz[n,0]}, {self.xyz[n,1]}, {self.xyz[n,2]}) \n "

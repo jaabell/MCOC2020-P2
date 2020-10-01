@@ -53,11 +53,11 @@ class Reticulado(object):
 
     def agregar_restriccion(self, nodo, gdl, valor=0.0):
         if nodo in self.restricciones:
-            self.restricciones[nodo].append([gd1, valor])
+            self.restricciones[nodo].append([gdl, valor])
             return self.restricciones[nodo]
 
         else:
-            self.restricciones[nodo] = [[gd1, valor]]
+            self.restricciones[nodo] = [[gdl, valor]]
             return self.restricciones[nodo]
 
     def agregar_fuerza(self, nodo, gdl, valor):

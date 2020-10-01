@@ -52,24 +52,25 @@ class Reticulado(object):
 
 
     def agregar_restriccion(self, nodo, gdl, valor=0.0):
-        """Agrega una restriccion, dado el nodo, grado de libertad y valor 
-        del desplazamiento de dicho grado de libertad
-        """
+        if nodo in self.restricciones:
+            self.restricciones[nodo].append([gd1, valor])
+            return self.restricciones[nodo]
 
-        #Implementar
-
-
+        else:
+            self.restricciones[nodo] = [[gd1, valor]]
+            return self.restricciones[nodo]
 
     def agregar_fuerza(self, nodo, gdl, valor):
-        """Agrega una restriccion, dado el nodo, grado de libertad y valor 
-        del la fuerza en la direccion de dicho GDL
-        """
+        if nodo in self.cargas:
+            self.cargas[nodo].append([gd1, valor])
+            return self.cargas.[nodo]
 
-        #Implementar
+        else:
+            self.cargas[nodo] = [[gd1, valor]]
+            return self.cargas[nodo]
 
 
     def ensamblar_sistema(self):
-        """Ensambla el sistema de ecuaciones"""
         
         Ngdl = self.Nnodos * self.Ndimensiones
 
@@ -77,7 +78,32 @@ class Reticulado(object):
         self.f = np.zeros((Ngdl), dtype=np.double)
         self.u = np.zeros((Ngdl), dtype=np.double)
 
-        #Implementar
+
+        for barra in self.barras:
+            d = [2*b.ni , 2*b.ni + 1 , 2*b.nj , 2*b.nj + 1]
+
+            for i in range(len(d)):
+                p = d[i]
+                for j in range(len(d)):
+                    q = d[j]
+                    ke = barra.obtener_rigidez(self)
+                    fe = barra.obtener_vector_de_cargas(self)
+                    self.K[p,q] += ke[i,j]
+
+                self.f[p] += fe[i]
+
+        for carga in self.cargas:
+            fuerza = self.cargas[carga][0][1]
+            carga_xy = self.cargas[carga][0][0]
+            nodo_4 = 2*carga + carga_xy
+            self.f[nodo_4] += fuerza
+
+        return self.k, self.f
+
+
+
+
+
 
 
 

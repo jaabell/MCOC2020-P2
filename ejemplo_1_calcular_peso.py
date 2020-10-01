@@ -1,6 +1,7 @@
 from reticulado import Reticulado
 from barra import Barra
 from graficar2d import ver_reticulado_2d
+"Prueba"
 
 # Unidades
 cm = 1e-2

@@ -1,6 +1,8 @@
 import numpy as np
 from scipy.linalg import solve
 
+"Prueba"
+
 class Reticulado(object):
     """Define un reticulado"""
     __NNodosInit__ = 100

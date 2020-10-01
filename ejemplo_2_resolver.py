@@ -2,6 +2,7 @@ from reticulado import Reticulado
 from barra import Barra
 from graficar2d import ver_reticulado_2d
 from math import *
+"Prueba"
 
 # Unidades base
 m = 1.

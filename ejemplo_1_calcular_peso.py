@@ -11,26 +11,28 @@ MPa = 1e+6
 KN = 1e3
 m = 1.0
 
-# Inicializar modelo
+#Inicializar modelo
 ret = Reticulado()
 
 
-# Agregar Nodos
+#Nodos
 ret.agregar_nodo(0,0)
 ret.agregar_nodo(1,0)
 ret.agregar_nodo(1,1)
 
+print(ret)
 
-
-# Agregar Barras
+#Barras
 b1 = Barra(0, 1, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
 b2 = Barra(1, 2, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
 b3 = Barra(0, 2, 20*cm, 4*mm, 200*GPa, 7600*kg/m**3, 420*MPa)
+
 ret.agregar_barra(b1)
 ret.agregar_barra(b2)
 ret.agregar_barra(b3)
 
+peso_total = ret.calcular_peso_total()
 
-print(ret)
+print(f"peso_total = {peso_total}")
 
 ver_reticulado_2d(ret)

@@ -10,6 +10,8 @@ class Reticulado(object):
 		self.barras = []
 		self.cargas = {}
 		self.restricciones = {}
+		
+		
 	def agregar_nodo(self, x, y, z=0):
 		self.xyz.resize((self.Nnodos+1,3))
 		self.xyz[self.Nnodos,:] = [x,y,z]

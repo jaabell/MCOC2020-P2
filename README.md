@@ -20,7 +20,9 @@ Para realizar el grafico del reticulado, se utilizo la funcion "ver_reticulado_2
 
 
 
+# Entrega 2 
 
+Esta entrega tiene como objetivo que funcione el segundo ejemplo: ejemplo_2_resolver.py.
 
 
 

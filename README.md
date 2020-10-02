@@ -12,6 +12,6 @@ Con respecto a la entrega 2, se realizó la division de las tareas como correspo
 - GRUPO G1
 
 
-ENTREGA 2 :
+LO QUE PUDIMOS IMPRIMIR EN ESTA ENTREGA 2 :
 
 ![alt text](   https://github.com/maxipoblete/MCOC2020-P2/blob/master/Captura%20de%20Pantalla%202020-10-01%20a%20la(s)%2022.39.52.png  )

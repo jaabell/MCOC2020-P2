@@ -1,5 +1,5 @@
 import numpy as np
-from numpy.linalg import inv
+
 
 g = 9.81 #kg*m/s^2
 

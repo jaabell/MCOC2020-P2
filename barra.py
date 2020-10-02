@@ -45,8 +45,6 @@ class Barra(object):
 
 
 
-
-
     def obtener_rigidez(self, ret): ###3
         """Devuelve la rigidez ke del elemento. Arreglo numpy de (4x4)
         ret: instancia de objeto tipo reticulado
@@ -59,15 +57,13 @@ class Barra(object):
         xj = ret.obtener_coordenada_nodal(self.nj)
 
         dji = xj-xi
-        
-        cos_theta = dji[0]/L
-        sen_theta = dji[1]/L
-        
-        T_theta = [-cos_theta,   -sen_theta,    cos_theta, sen_theta]
-        ke = T_theta.T @T_theta * k
-        
-        #implementar
 
+        cosθ = dji[0]/L
+        senθ= dji[1]/L
+        
+        T_θ = np.array([ [-cosθ],   [-senθ],    [cosθ], [senθ]])
+        ke = k * T_θ @ T_θ.T
+        
         return ke
 
     def obtener_vector_de_cargas(self, ret):
@@ -77,7 +73,7 @@ class Barra(object):
 
         W_2= self.calcular_peso(ret)/2    # Peso de la barra / 2 
         F = -W_2
-        fe = ([0 ,1 , 0 ,1 ].T)*F
+        fe = (np.array([0 ,1 , 0 ,1 ]).T)*F
 
         return fe
 
@@ -97,23 +93,22 @@ class Barra(object):
 
         dji = xj-xi
         
-        cos_theta = dji[0]/L
-        sen_theta = dji[1]/L
+        cosθ = dji[0]/L
+        senθ = dji[1]/L
         
-        T_theta = [-cos_theta,   -sen_theta, cos_theta, sen_theta]
-        ke = T_theta.T @T_theta * k
-        Ke_1 = inv(ke)
+        T_θ = np.array([ -cosθ,   -senθ,    cosθ, senθ])
         
-        fe= self.obtener_vector_de_cargas(ret)
-        
-        ue = Ke_1 @ fe
-        
-        delta = T_theta@ ue
-        
+        u2i   = 2*self.ni
+        u2i_1 = 2*self.ni+1
+        u2i   = 2*self.nj
+        u2i_1 = 2*self.nj+1
+
+        ue = np.array([ret.u[u2i], ret.u[u2i_1], ret.u[u2i], ret.u[u2i_1]])
+        delta = T_θ @ ue
         se = k * delta
-        
 
         return se
+
 
 
 

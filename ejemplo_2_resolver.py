@@ -52,9 +52,6 @@ ret.agregar_restriccion(0, 0, 0)
 ret.agregar_restriccion(0, 1, 0)
 ret.agregar_restriccion(2, 1, 0)
 
-ver_reticulado_2d(ret)
-
-
 ret.agregar_fuerza(4, 1, -F)
 
 ret.ensamblar_sistema()

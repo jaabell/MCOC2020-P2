@@ -1,5 +1,6 @@
 import numpy as np
 
+
 g = 9.81 #kg*m/s^2
 
 
@@ -44,19 +45,25 @@ class Barra(object):
 
 
 
-
-
-
-
-
-
-    def obtener_rigidez(self, ret):
+    def obtener_rigidez(self, ret): ###3
         """Devuelve la rigidez ke del elemento. Arreglo numpy de (4x4)
         ret: instancia de objeto tipo reticulado
         """
+        L = self.calcular_largo(ret)
+        A = self.calcular_area()
+        k = self.E * A / L
         
-        #implementar
+        xi = ret.obtener_coordenada_nodal(self.ni)
+        xj = ret.obtener_coordenada_nodal(self.nj)
 
+        dji = xj-xi
+
+        cosθ = dji[0]/L
+        senθ= dji[1]/L
+        
+        T_θ = np.array([ [-cosθ],   [-senθ],    [cosθ], [senθ]])
+        ke = k * T_θ @ T_θ.T
+        
         return ke
 
     def obtener_vector_de_cargas(self, ret):
@@ -64,7 +71,9 @@ class Barra(object):
         ret: instancia de objeto tipo reticulado
         """
 
-        #Implementar
+        W_2= self.calcular_peso(ret)/2    # Peso de la barra / 2 
+        F = -W_2
+        fe = (np.array([0 ,1 , 0 ,1 ]).T)*F
 
         return fe
 
@@ -73,11 +82,33 @@ class Barra(object):
         """Devuelve la fuerza se que debe resistir la barra. Un escalar tipo double. 
         ret: instancia de objeto tipo reticulado
         """
+        
+        
+        L = self.calcular_largo(ret)
+        A = self.calcular_area()
+        k = self.E * A / L
+        
+        xi = ret.obtener_coordenada_nodal(self.ni)
+        xj = ret.obtener_coordenada_nodal(self.nj)
 
-        #Implementar
+        dji = xj-xi
+        
+        cosθ = dji[0]/L
+        senθ = dji[1]/L
+        
+        T_θ = np.array([ -cosθ,   -senθ,    cosθ, senθ])
+        
+        u2i   = 2*self.ni
+        u2i_1 = 2*self.ni+1
+        u2j   = 2*self.nj
+        u2j_1 = 2*self.nj+1
 
+        ue = np.array([ret.u[u2i], ret.u[u2i_1], ret.u[u2j], ret.u[u2j_1]])
+        delta = T_θ @ ue
+        se = k * delta
 
         return se
+
 
 
 

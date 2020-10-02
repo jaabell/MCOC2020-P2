@@ -108,19 +108,22 @@ class Reticulado(object):
 
         # 0 : Aplicar restricciones
         Ngdl = self.Nnodos * self.Ndimensiones
-        gdl_libres = np.arange(Ngdl)
+
+
+        # Definimos los vectores de nodos gdl.
+        gdl_libres = np.arange(Ngdl)             # 0,1,2,3,4,5,6,7,8,9  
         gdl_restringidos = []
 
+        for i in self.restricciones:
+            for nodo in self.restricciones[i]:
+                gdl_restringidos.append(nodo[0] + 2*i)
 
-
-
-
+        
+        gdl_libres = np.setdiff1d(gdl_libres,gdl_restringidos)
 
         #Identificar gdl_restringidos y llenar u 
         # en valores conocidos.
-        #
         # Hint: la funcion numpy.setdiff1d es util
-
 
         #Agregar cargas nodales a vector de cargas 
         for nodo in self.cargas:
@@ -129,24 +132,32 @@ class Reticulado(object):
                 valor = carga[1]
                 gdl_global = 2*nodo + gdl
                 
-
-
         #1 Particionar:
         #       K en Kff, Kfc, Kcf y Kcc.
         #       f en ff y fc
         #       u en uf y uc
+        Kff = self.K[np.ix_(gdl_libres,gdl_libres)]
+        Kfc = self.K[np.ix_(gdl_libres,gdl_restringidos)]
+        Kcf = Kfc.T
+        Kcc = self.K[np.ix_(gdl_restringidos,gdl_restringidos)]
+        uf = self.u[gdl_libres]
+        uc = self.u[gdl_restringidos]
+        ff = self.f[gdl_libres]
+        fcc = self.f[gdl_restringidos]
         
-
+        
+        
         # Resolver para obtener uf -->  Kff uf = ff - Kfc*uc
-        
+        uf = solve(Kff,ff - Kfc @ uc)
+        # Retornar Rc
+        self.Rc = Kcf @ uf + Kcc @ uc - fcc
         #Asignar uf al vector solucion
-		
-		
-		
         self.u[gdl_libres] = uf
-
         #Marcar internamente que se tiene solucion
         self.tiene_solucion = True
+
+
+
 
     def obtener_desplazamiento_nodal(self, n):
         """Entrega desplazamientos en el nodo n como un vector numpy de (2x1) o (3x1)
@@ -175,10 +186,15 @@ class Reticulado(object):
 
 
 
+
+
+
+
+
+
+
     def __str__(self):
-		
-		
-        s = "nodos:\n"
+        s = "nodos: \n"
         for n in range(self.Nnodos):
             s += f"  {n} : ( {self.xyz[n,0]}, {self.xyz[n,1]}, {self.xyz[n,2]}) \n "
         s += "\n\n"
@@ -191,9 +207,9 @@ class Reticulado(object):
         
         s += "restricciones:\n"
         for nodo in self.restricciones:
-            s += f"{nodo} : {self.restricciones[nodo]}\n"
+            s += f"{nodo} : {self.restricciones[nodo]}\n\n"
         s += "\n\n"
-        
+    
         s += "cargas:\n"
         for nodo in self.cargas:
             s += f"{nodo} : {self.cargas[nodo]}\n"

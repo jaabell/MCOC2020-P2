@@ -54,7 +54,6 @@ class Reticulado(object):
     def agregar_restriccion(self, nodo, gdl, valor=0.0):
         if nodo in self.restricciones:
             self.restricciones[nodo].append([gdl, valor])
-
         else:
             self.restricciones[nodo] = [[gdl, valor]]
 
@@ -62,8 +61,6 @@ class Reticulado(object):
     def agregar_fuerza(self, nodo, gdl, valor):
         if nodo in self.cargas:
             self.cargas[nodo].append([gdl, valor])
-
-
         else:
             self.cargas[nodo] = [[gdl, valor]]
 
@@ -97,11 +94,7 @@ class Reticulado(object):
             nodo_4 = 2*carga + carga_xy
             self.f[nodo_4] += fuerza
 
-        return self.k, self.f
-
-
-
-
+        return self.K, self.f
 
 
 

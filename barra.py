@@ -100,10 +100,10 @@ class Barra(object):
         
         u2i   = 2*self.ni
         u2i_1 = 2*self.ni+1
-        u2i   = 2*self.nj
-        u2i_1 = 2*self.nj+1
+        u2j   = 2*self.nj
+        u2j_1 = 2*self.nj+1
 
-        ue = np.array([ret.u[u2i], ret.u[u2i_1], ret.u[u2i], ret.u[u2i_1]])
+        ue = np.array([ret.u[u2i], ret.u[u2i_1], ret.u[u2j], ret.u[u2j_1]])
         delta = T_θ @ ue
         se = k * delta
 
